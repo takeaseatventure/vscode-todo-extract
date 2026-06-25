@@ -1,0 +1,112 @@
+{
+  "name": "todo-extract",
+  "displayName": "TODO Extract — Scan, Track & Export Code Annotations",
+  "description": "Find all TODO, FIXME, HACK, and XXX comments across 20+ languages. Export to Markdown or JSON. Author detection, custom tags, and team-ready technical debt reports.",
+  "version": "0.1.0",
+  "publisher": "takeaseatventure",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devforge/todo-extract"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages",
+    "Developer Tools"
+  ],
+  "keywords": [
+    "todo",
+    "fixme",
+    "hack",
+    "technical debt",
+    "code annotations",
+    "comments",
+    "code review",
+    "export",
+    "markdown",
+    "task tracker",
+    "code scanner",
+    "debt tracker"
+  ],
+  "icon": "media/icon.png",
+  "activationEvents": [
+    "onCommand:todoextract.scan",
+    "onCommand:todoextract.exportMarkdown",
+    "onCommand:todoextract.exportJSON",
+    "onCommand:todoextract.scanFile"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "todoextract.scan",
+        "title": "TODO Extract: Scan Workspace"
+      },
+      {
+        "command": "todoextract.scanFile",
+        "title": "TODO Extract: Scan Current File"
+      },
+      {
+        "command": "todoextract.exportMarkdown",
+        "title": "TODO Extract: Export as Markdown"
+      },
+      {
+        "command": "todoextract.exportJSON",
+        "title": "TODO Extract: Export as JSON"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "todoextract.scan",
+        "key": "ctrl+alt+t",
+        "mac": "cmd+alt+t"
+      },
+      {
+        "command": "todoextract.scanFile",
+        "key": "ctrl+alt+f",
+        "mac": "cmd+alt+f"
+      },
+      {
+        "command": "todoextract.exportMarkdown",
+        "key": "ctrl+alt+m",
+        "mac": "cmd+alt+m"
+      },
+      {
+        "command": "todoextract.exportJSON",
+        "key": "ctrl+alt+j",
+        "mac": "cmd+alt+j"
+      }
+    ],
+    "configuration": {
+      "title": "TODO Extract",
+      "properties": {
+        "todoextract.tags": {
+          "type": "array",
+          "default": ["TODO", "FIXME", "HACK", "XXX", "BUG", "NOTE", "OPTIMIZE", "REVIEW"],
+          "description": "Comment tags to search for"
+        },
+        "todoextract.excludeDirs": {
+          "type": "array",
+          "default": ["node_modules", ".git", "vendor", "dist", "build", ".next", "__pycache__", ".venv", "target", ".cache"],
+          "description": "Directories to exclude from scanning"
+        },
+        "todoextract.excludeGlobs": {
+          "type": "array",
+          "default": ["**/*.min.js", "**/*.min.css", "**/package-lock.json", "**/yarn.lock"],
+          "description": "Glob patterns for files to exclude"
+        },
+        "todoextract.includeAuthor": {
+          "type": "boolean",
+          "default": true,
+          "description": "Parse and display author from TODO comments (e.g. TODO(john):)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  }
+}
