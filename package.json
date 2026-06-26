@@ -1,9 +1,9 @@
 {
   "name": "todo-extract",
-  "displayName": "TODO Extract — Scan, Track & Export Code Annotations",
+  "displayName": "TODO Extract \u2014 Scan, Track & Export Code Annotations",
   "description": "Find all TODO, FIXME, HACK, and XXX comments across 20+ languages. Export to Markdown or JSON. Author detection, custom tags, and team-ready technical debt reports.",
   "version": "0.1.0",
-  "publisher": "takeaseatventure",
+  "publisher": "takeaseat-venture",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -13,9 +13,7 @@
     "vscode": "^1.74.0"
   },
   "categories": [
-    "Other",
-    "Programming Languages",
-    "Developer Tools"
+    "Other"
   ],
   "keywords": [
     "todo",
@@ -85,17 +83,42 @@
       "properties": {
         "todoextract.tags": {
           "type": "array",
-          "default": ["TODO", "FIXME", "HACK", "XXX", "BUG", "NOTE", "OPTIMIZE", "REVIEW"],
+          "default": [
+            "TODO",
+            "FIXME",
+            "HACK",
+            "XXX",
+            "BUG",
+            "NOTE",
+            "OPTIMIZE",
+            "REVIEW"
+          ],
           "description": "Comment tags to search for"
         },
         "todoextract.excludeDirs": {
           "type": "array",
-          "default": ["node_modules", ".git", "vendor", "dist", "build", ".next", "__pycache__", ".venv", "target", ".cache"],
+          "default": [
+            "node_modules",
+            ".git",
+            "vendor",
+            "dist",
+            "build",
+            ".next",
+            "__pycache__",
+            ".venv",
+            "target",
+            ".cache"
+          ],
           "description": "Directories to exclude from scanning"
         },
         "todoextract.excludeGlobs": {
           "type": "array",
-          "default": ["**/*.min.js", "**/*.min.css", "**/package-lock.json", "**/yarn.lock"],
+          "default": [
+            "**/*.min.js",
+            "**/*.min.css",
+            "**/package-lock.json",
+            "**/yarn.lock"
+          ],
           "description": "Glob patterns for files to exclude"
         },
         "todoextract.includeAuthor": {
